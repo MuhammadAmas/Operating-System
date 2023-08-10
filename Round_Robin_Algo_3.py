@@ -64,14 +64,12 @@ def main():
     for pid in range(1, num_processes + 1):
         arrival_time = 0 if pid == 1 else int(input(f"Enter arrival time for process P{pid}: "))
         execution_time = int(input(f"Enter execution time for process P{pid} (<= 10): "))
-        if execution_time < 3 or execution_time > 5:
-            print("Invalid number of execution time. Please enter a number less than or equal to 10.")
-            return
-        resource = str(input(f"Enter resource desired for process P{pid} : "))
-        no_of_instructions = str(input(f"Enter number of instructions in process P{pid} : "))
         if execution_time > 10:
             print("Execution time must be <= 10. Please re-enter the execution time.")
             return
+        resource = str(input(f"Enter resource desired for process P{pid} : "))
+        no_of_instructions = str(input(f"Enter number of instructions in process P{pid} : "))
+        
 
         processes.append(ProcessControlBlock(pid, arrival_time, execution_time, time_quantum, resource, no_of_instructions))
 
