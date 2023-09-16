@@ -1,4 +1,4 @@
-def srtf_scheduling_algorithm():
+def run_srtf_scheduling():
     print("\n*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*")
     print("                    SRTF Scheduling Algorithm                        ")
     print("*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*~~~~~*\n")
@@ -54,7 +54,8 @@ def srtf_scheduling_algorithm():
                             boolean = False
                         else:
                             arrival_time[h] = 0
-                            print("'Invalid input. Please enter from number 1 to 12 only.'")
+                            print(
+                                "'Invalid input. Please enter from number 1 to 12 only.'")
                     else:
                         print("'Invalid input. Please enter an integer.'")
             else:
@@ -204,11 +205,14 @@ def srtf_scheduling_algorithm():
 
     for i in range(0, len(gantt_bt)):
         if gantt_bt[i] <= 9 and gantt_bt[i] < 99:
-            print(str(gantt_bt[i]) + (str(" ") * int(gantt_length[i] - 1)), end="  ")
+            print(str(gantt_bt[i]) + (str(" ") *
+                  int(gantt_length[i] - 1)), end="  ")
         elif gantt_bt[i] > 9 and gantt_bt[i] <= 99:
-            print(str(gantt_bt[i]) + (str(" ") * int(gantt_length[i] - 1)), end=" ")
+            print(str(gantt_bt[i]) + (str(" ") *
+                  int(gantt_length[i] - 1)), end=" ")
         elif gantt_bt[i] > 9 and gantt_bt[i] > 99:
-            print(str(gantt_bt[i]) + (str(" ") * int(gantt_length[i] - 1)), end="")
+            print(str(gantt_bt[i]) + (str(" ") *
+                  int(gantt_length[i] - 1)), end="")
 
     print(
         "\n\nAverage Waiting Time (AWT): ",
@@ -218,6 +222,3 @@ def srtf_scheduling_algorithm():
         avg_turn_around_time,
         "ms",
     )
-
-# Run the function
-srtf_scheduling_algorithm()
