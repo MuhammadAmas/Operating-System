@@ -44,3 +44,10 @@ Shortest Remaining Time (SRT)
 Round Robin (RR)
 
 Enter the corresponding abbrevation to choose an algorithm and follow the on-screen instructions to input any required parameters.
+
+## Contributors
+- **[Muhammad Amas](https://github.com/MuhammadAmas)**
+- **[Zunain Ali Azam](https://github.com/ZunainAliAzam)**
+- **[Ahmed Ali](https://github.com/Ahmad43A)**
+- **[Ilhaam Ismail Soomro](https://github.com/ilhaamsoomro)**
+- **[Shaheer Ali Zaidi]()**
