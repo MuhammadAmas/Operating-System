@@ -2,14 +2,6 @@
 
 This repository contains operating system related material and various process scheduling algorithms implemented in Python.
 
-## Dependencies
-
-Before running any of the scheduling algorithms, make sure you have the necessary dependencies installed. You can install them by running the install_dependencies.py file
-
-```bash
-python install_dependencies.py
-```
-
 ## Scheduling Algorithms:
 Scheduling algorithms are essential components of operating systems that manage the execution of multiple processes efficiently. They determine the order in which processes are executed, aiming to optimize resource utilization, response times, and overall system performance.
 
@@ -30,6 +22,15 @@ HRRN is a non-preemptive scheduling algorithm that selects the process with the 
 
 
 ## Running the Scheduling Algorithms
+
+#### Dependencies
+
+Before running any of the scheduling algorithms, make sure you have the necessary dependencies installed. You can install them by running the install_dependencies.py file
+
+```bash
+python install_dependencies.py
+```
+
 To run a scheduling algorithm, navigate to the `Scheduling Algorithm` folder and execute the main.py file:
 
 ```python
