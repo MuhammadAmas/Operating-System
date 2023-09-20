@@ -1,9 +1,11 @@
 from prettytable import PrettyTable
+
 def sjf_scheduling(process_data):
     start_time = []
     exit_time = []
     s_time = 0
     process_data.sort(key=lambda x: x[1])
+    gantt_chart = []  # Initialize Gantt chart
 
     for i in range(len(process_data)):
         ready_queue = []
@@ -31,6 +33,8 @@ def sjf_scheduling(process_data):
                     break
             process_data[k][3] = 1
             process_data[k].append(e_time)
+            gantt_chart.append([ready_queue[0][0], start_time[-1], e_time])
+
         elif len(ready_queue) == 0:
             if s_time < normal_queue[0][1]:
                 s_time = normal_queue[0][1]
@@ -43,10 +47,26 @@ def sjf_scheduling(process_data):
                     break
             process_data[k][3] = 1
             process_data[k].append(e_time)
+            gantt_chart.append([normal_queue[0][0], start_time[-1], e_time])
 
     avg_turnaround_time = calculate_turnaround_time(process_data)
     avg_waiting_time = calculate_waiting_time(process_data)
-    return process_data, avg_turnaround_time, avg_waiting_time
+    for i in range(len(process_data)):
+        process_data[i][0] = "P"+str(i+1)
+    return process_data, avg_turnaround_time, avg_waiting_time, gantt_chart
+
+def display_gantt_chart(gantt_chart):
+    for row in gantt_chart:
+        print(f" P{row[0]}" + " " * (row[2] - row[1]), end="")
+    print()
+    for row in gantt_chart:
+        print("|" + "-" * (row[2] - row[1] + 1), end="")
+    print("|")
+    for row in gantt_chart:
+        print(f"{row[1]}", end="")
+        print(" " * (row[2] - row[1] - len(str(row[1]))), end="  ")
+    print(row[2], end="")
+    print()
 
 def calculate_turnaround_time(process_data):
     total_turnaround_time = 0
@@ -67,8 +87,7 @@ def calculate_waiting_time(process_data):
 def main():
     while True:
         try:
-            no_of_processes = int(
-                input("Enter number of processes (3 to 10): "))
+            no_of_processes = int(input("Enter number of processes (3 to 10): "))
             if 3 <= no_of_processes <= 10:
                 break
             else:
@@ -83,9 +102,8 @@ def main():
         burst_time = int(input(f"Enter Burst Time for Process {i + 1}: "))
         process_data.append([i + 1, arrival_time, burst_time, 0])
 
-    result, avg_turnaround_time, avg_waiting_time = sjf_scheduling(process_data)
+    result, avg_turnaround_time, avg_waiting_time, gantt_chart = sjf_scheduling(process_data)
 
-    # Create a PrettyTable instance for the final results
     result_table = PrettyTable()
     result_table.field_names = ["Process_ID", "Arrival_Time", "Burst_Time","Completed", "Completion_Time", "Turnaround_Time", "Waiting_Time"]
 
@@ -95,6 +113,9 @@ def main():
 
     print(f'Average Turnaround Time: {avg_turnaround_time}')
     print(f'Average Waiting Time: {avg_waiting_time}')
+
+    print("\nGantt Chart:")
+    display_gantt_chart(gantt_chart)
 
 if __name__ == "__main__":
     main()

@@ -61,7 +61,7 @@ def run_srtf_scheduling():
             else:
                 burst_time[h] = 0
                 print("'Invalid input. Please enter from number 5 to 15 only.'")
-                h = h - 2
+                h = h - 1
         else:
             print("'Invalid input. Please enter an integer.'")
             h = h - 1
