@@ -93,8 +93,10 @@ def hrrn_scheduling(num_processes, arrival_time, burst_time):
     headers = ["Name", "Arrival Time", "Burst Time",
                "Waiting Time", "Turnaround Time", "Completion Time"]
 
-    display_gantt_chart(create_gantt_chart(g_process, g_arrival, g_burst))
     print(tabulate(data, headers, tablefmt="grid"))
+    
+    print('\nGantt Chart : >> \n')
+    display_gantt_chart(create_gantt_chart(g_process, g_arrival, g_burst))
     
 
 
