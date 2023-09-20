@@ -25,7 +25,7 @@ def create_gantt_chart(process, arrival_time, burst_time):
 # Function to display the Gantt chart
 def display_gantt_chart(gantt_chart):
     for row in gantt_chart:
-        print(f"  {row[0]}" + " " * len(str(row[2] - row[1])), end="")
+        print(f"{row[0]}" + " " * (row[2] - row[1]), end="")
     print()
     for row in gantt_chart:
         print("|" + "-" * (row[2] - row[1] + 1), end="")
@@ -128,5 +128,10 @@ def input_process_details():
 
     return num_processes, arrival_time, burst_time
 
+
 # Run the HRRN scheduling algorithm
-run_hrrn_scheduling()
+def main():
+    run_hrrn_scheduling()
+
+if __name__ == "__main__":
+    main()

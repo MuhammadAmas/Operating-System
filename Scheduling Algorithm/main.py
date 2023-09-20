@@ -1,6 +1,7 @@
 from RR import run_rr_scheduling
 from SRTF import run_srtf_scheduling
 from SJF import run_sjf_scheduling
+from HRRN import run_hrrn_scheduling
 
 
 while True:
@@ -15,7 +16,7 @@ while True:
     if user_choice == "rr":
         run_rr_scheduling()
     elif user_choice == "hrrn":
-        from HRRN import run_hrrn_scheduling
+        run_hrrn_scheduling()
         break
     elif user_choice == "srt":
         run_srtf_scheduling()
