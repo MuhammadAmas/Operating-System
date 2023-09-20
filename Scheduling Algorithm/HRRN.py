@@ -59,7 +59,7 @@ def hrrn_scheduling(num_processes, arrival_time, burst_time):
 
     while t < sum_bt:
         hrr = -9999
-        temp, loc = 0, 0
+        temp, location = 0, 0
 
         for i in range(num_processes):
             if arrival_time[i] <= t and completed[i] != 1:
@@ -68,22 +68,22 @@ def hrrn_scheduling(num_processes, arrival_time, burst_time):
 
                 if hrr < temp:
                     hrr = temp
-                    loc = i
+                    location = i
 
-        t += burst_time[loc]
-        completion_time[loc] = t
-        waiting_time[loc] = (t - arrival_time[loc] - burst_time[loc])
-        turnaround_time[loc] = t - arrival_time[loc]
-        completed[loc] = 1
-        avgwt += waiting_time[loc]
-        start_time.append(t - burst_time[loc])
+        t += burst_time[location]
+        completion_time[location] = t
+        waiting_time[location] = (t - arrival_time[location] - burst_time[location])
+        turnaround_time[location] = t - arrival_time[location]
+        completed[location] = 1
+        avgwt += waiting_time[location]
+        start_time.append(t - burst_time[location])
         end_time.append(t)
 
-        data.append([process[loc], arrival_time[loc], burst_time[loc],
-                    waiting_time[loc], turnaround_time[loc], completion_time[loc]])
-        g_burst.append(burst_time[loc])
-        g_process.append(process[loc])
-        g_arrival.append(arrival_time[loc])
+        data.append([process[location], arrival_time[location], burst_time[location],
+                    waiting_time[location], turnaround_time[location], completion_time[location]])
+        g_burst.append(burst_time[location])
+        g_process.append(process[location])
+        g_arrival.append(arrival_time[location])
 
     avg_waiting_time, avg_turnaround_time, avg_completion_time = calculate_average_times(
         waiting_time, turnaround_time, completion_time)
