@@ -136,3 +136,9 @@ def input_process_details():
 
     print('\n\n')
     return num_processes, arrival_time, burst_time
+
+def main():
+    run_hrrn_scheduling()
+
+if __name__ == "__main__":
+    main()
