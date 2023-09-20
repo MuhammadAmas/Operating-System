@@ -50,4 +50,4 @@ Enter the corresponding abbrevation to choose an algorithm and follow the on-scr
 - **[Zunain Ali Azam](https://github.com/ZunainAliAzam)**
 - **[Ahmed Ali](https://github.com/Ahmad43A)**
 - **[Ilhaam Ismail Soomro](https://github.com/ilhaamsoomro)**
-- **[Shaheer Ali Zaidi]()**
+- **[Shaheer Ali Zaidi](https://github.com/Syed-Shaheer-Ali-Zaidi)**
