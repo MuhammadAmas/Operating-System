@@ -19,7 +19,6 @@ def create_gantt_chart(process, arrival_time, burst_time):
         start_time.append((end_time[i-1]))
         end_time.append(((burst_time[i])+(start_time[i])))
     for p, start, end in zip(process, start_time, end_time):
-        print('p', p)
         gantt_chart.append([p, start, end])
     return gantt_chart
 

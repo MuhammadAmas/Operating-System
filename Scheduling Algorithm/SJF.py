@@ -52,7 +52,7 @@ def sjf_scheduling(process_data):
     avg_turnaround_time = calculate_turnaround_time(process_data)
     avg_waiting_time = calculate_waiting_time(process_data)
     for i in range(len(process_data)):
-        process_data[i][0] = "P"+str(i+1)
+        process_data[i][0] = "P"+str(process_data[i][0])
     return process_data, avg_turnaround_time, avg_waiting_time, gantt_chart
 
 def display_gantt_chart(gantt_chart):
@@ -84,7 +84,7 @@ def calculate_waiting_time(process_data):
         process_data[i].append(waiting_time)
     return total_waiting_time / len(process_data)
 
-def main():
+def run_sjf_scheduling():
     while True:
         try:
             no_of_processes = int(input("Enter number of processes (3 to 10): "))
@@ -116,6 +116,3 @@ def main():
 
     print("\nGantt Chart:")
     display_gantt_chart(gantt_chart)
-
-if __name__ == "__main__":
-    main()
